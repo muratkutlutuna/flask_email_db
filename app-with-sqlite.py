@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./email.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:clarusway_1@<database-1.csh4u6m8281i.us-east-1.rds.amazonaws.com->:3306/clarusway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -81,7 +81,7 @@ def add_email():
 
 # - Add a statement to run the Flask application which can be reached from any host on port 80.
 if __name__=='__main__':
-    app.run(debug=True)
-    # app.run(host='0.0.0.0', port=8080)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080)
 
 # https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
